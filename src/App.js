@@ -13,11 +13,15 @@ function App() {
     e.preventDefault();
 
     setTodos([{ id: Date.now(), title: todo, done: false }, ...todos]);
-    console.log(todos)
+    console.log(todos);
   };
 
-  const delHandler = () => {
-    console.log("Delete");
+  const delHandler = (todoId) => {
+    if (window.confirm("Are you sure?")) {
+      const updatedTodo = todos.filter((item) => item.id !== todoId);
+
+      setTodos(updatedTodo);
+    }
   };
 
   const doneHandler = () => {
