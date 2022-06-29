@@ -9,7 +9,7 @@ function App() {
   const [error, setError] = useState(null)
   const [todo, setTodo] = useState("");
   const [todos, setTodos] = useState([]);
-  const [info, setInfo] = useState(null)
+  const [info, setInfo] = useState(false)
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -31,7 +31,7 @@ function App() {
 
       setTodos(updatedTodo);
 
-      setInfo(`Todo Silindi !`)
+      setInfo(true)
 
       console.log("Silindi");
     }
