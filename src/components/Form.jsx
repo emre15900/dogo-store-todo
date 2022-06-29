@@ -1,13 +1,13 @@
 import React from "react";
 
-function Form({ todo, change }) {
+function Form({ todo, change, submit }) {
   const formStyle = {
     padding: "0.5rem 0",
     margin: "10px 0",
   };
 
   return (
-    <form>
+    <form onSubmit={submit}>
       <div className="form-group row">
         <div className="col-9">
           <input
