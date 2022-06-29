@@ -1,6 +1,6 @@
 import React from "react";
 
-function Form({ todo, change, submit }) {
+function Form({ todo, change, submit, error }) {
   const formStyle = {
     padding: "0.5rem 0",
     margin: "10px 0",
@@ -17,6 +17,7 @@ function Form({ todo, change, submit }) {
             className="form-control"
             style={formStyle}
           />
+          {error && <small className="form-text text-danger">{error}</small>}
         </div>
         <div className="col-3">
           <button type="submit" className="btn btn-primary">

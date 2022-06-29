@@ -6,14 +6,22 @@ import Form from "./components/Form";
 import { useState } from "react";
 
 function App() {
+  const [error, setError] = useState(null)
   const [todo, setTodo] = useState("");
   const [todos, setTodos] = useState([]);
 
   const submitHandler = (e) => {
     e.preventDefault();
 
+    if(todo.length < 5) {
+      setError(`At least 5 word required!`)
+      return false
+    }
+
     setTodos([{ id: Date.now(), title: todo, done: false }, ...todos]);
-    console.log(todos);
+    
+    setError(null)
+    setTodo("")
   };
 
   const delHandler = (todoId) => {
@@ -47,6 +55,7 @@ function App() {
           todo={todo}
           change={(e) => setTodo(e.target.value)}
           submit={submitHandler}
+          error={error}
         />
         <Lists del={delHandler} done={doneHandler} todos={todos} />
       </Layout>
