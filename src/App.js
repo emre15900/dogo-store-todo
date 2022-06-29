@@ -7,15 +7,14 @@ import { useState } from "react";
 
 function App() {
   const [todo, setTodo] = useState("");
-  const [todos, setTodos] = useState([])
+  const [todos, setTodos] = useState([]);
 
   const submitHandler = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    setTodos([{title: todo}, ...todos])
-
+    setTodos([{ id: Date.now(), title: todo, done: false }, ...todos]);
     console.log(todos)
-  }
+  };
 
   const delHandler = () => {
     console.log("Delete");
@@ -29,8 +28,12 @@ function App() {
     <div className="App">
       <Layout>
         <Header />
-        <Form todo={todo} change={(e) => setTodo(e.target.value)} submit={submitHandler} />
-        <Lists del={delHandler} done={doneHandler} />
+        <Form
+          todo={todo}
+          change={(e) => setTodo(e.target.value)}
+          submit={submitHandler}
+        />
+        <Lists del={delHandler} done={doneHandler} todos={todos} />
       </Layout>
     </div>
   );
