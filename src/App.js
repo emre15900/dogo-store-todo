@@ -3,13 +3,27 @@ import Layout from "./components/Layout";
 import Header from "./components/Header";
 import Lists from "./components/Lists";
 import Form from "./components/Form";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
   const [error, setError] = useState(null);
   const [todo, setTodo] = useState("");
   const [todos, setTodos] = useState([]);
   const [info, setInfo] = useState(false);
+
+  useEffect(() => {
+    const getTodos = JSON.parse(localStorage.getItem("todos"))
+    
+    if(getTodos){
+      setTodos(getTodos)
+    }
+    
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos))
+  }, [todos])
+  
 
   const submitHandler = (e) => {
     e.preventDefault();
