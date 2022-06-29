@@ -4,7 +4,6 @@ import Header from "./components/Header";
 import Lists from "./components/Lists";
 import Form from "./components/Form";
 import { useState } from "react";
-import Alert from "./components/Alert";
 
 function App() {
   const [error, setError] = useState(null);
