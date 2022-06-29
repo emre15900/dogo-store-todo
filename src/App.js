@@ -4,25 +4,26 @@ import Header from "./components/Header";
 import Lists from "./components/Lists";
 import Form from "./components/Form";
 import { useState } from "react";
+import Alert from "./components/Alert";
 
 function App() {
-  const [error, setError] = useState(null)
+  const [error, setError] = useState(null);
   const [todo, setTodo] = useState("");
   const [todos, setTodos] = useState([]);
-  const [info, setInfo] = useState(false)
+  const [info, setInfo] = useState(false);
 
   const submitHandler = (e) => {
     e.preventDefault();
 
-    if(todo.length < 5) {
-      setError(`At least 5 word required!`)
-      return false
+    if (todo.length < 5) {
+      setError(`At least 5 word required!`);
+      return false;
     }
 
     setTodos([{ id: Date.now(), title: todo, done: false }, ...todos]);
-    
-    setError(null)
-    setTodo("")
+
+    setError(null);
+    setTodo("");
   };
 
   const delHandler = (todoId) => {
@@ -31,7 +32,7 @@ function App() {
 
       setTodos(updatedTodo);
 
-      setInfo(true)
+      setInfo(true);
 
       console.log("Silindi");
     }
@@ -48,7 +49,7 @@ function App() {
     };
 
     setTodos(duplicateTodos);
-    console.log(todos)
+    console.log(todos);
   };
 
   return (
