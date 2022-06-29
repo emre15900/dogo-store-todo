@@ -21,11 +21,22 @@ function App() {
       const updatedTodo = todos.filter((item) => item.id !== todoId);
 
       setTodos(updatedTodo);
+      console.log("Silindi");
     }
   };
 
-  const doneHandler = () => {
-    console.log("Done");
+  const doneHandler = (todoId) => {
+    const index = todos.findIndex((item) => item.id === todoId);
+    const duplicateTodos = [...todos];
+
+    duplicateTodos[index] = {
+      id: todos[index].id,
+      title: todos[index].title,
+      done: !todos[index].done,
+    };
+
+    setTodos(duplicateTodos);
+    console.log(todos)
   };
 
   return (

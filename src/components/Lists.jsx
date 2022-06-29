@@ -12,6 +12,7 @@ function Lists({ del, done, todos }) {
             title={todo.title}
             delHandler={del}
             doneHandler={done}
+            done={todo.done}
           />
         ))}
       </ul>
