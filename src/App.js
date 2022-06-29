@@ -4,10 +4,19 @@ import Header from "./components/Header";
 import Lists from "./components/Lists";
 
 function App() {
+
+  const delHandler = () => {
+    console.log("Delete")
+  } 
+
+  const doneHandler = () => {
+    console.log("Done")
+  }
+
   return <div className="App">
     <Layout>
       <Header />
-      <Lists />
+      <Lists del={delHandler} done={doneHandler} />
     </Layout>
   </div>;
 }
