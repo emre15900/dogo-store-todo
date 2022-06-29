@@ -62,7 +62,7 @@ function App() {
           error={error}
           info={info}
         />
-        <Lists del={delHandler} done={doneHandler} todos={todos} />
+        <Lists info={info} del={delHandler} done={doneHandler} todos={todos} />
       </Layout>
     </div>
   );
