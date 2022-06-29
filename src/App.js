@@ -9,6 +9,7 @@ function App() {
   const [error, setError] = useState(null)
   const [todo, setTodo] = useState("");
   const [todos, setTodos] = useState([]);
+  const [info, setInfo] = useState(null)
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -29,6 +30,9 @@ function App() {
       const updatedTodo = todos.filter((item) => item.id !== todoId);
 
       setTodos(updatedTodo);
+
+      setInfo(`Todo Silindi !`)
+
       console.log("Silindi");
     }
   };
@@ -56,6 +60,7 @@ function App() {
           change={(e) => setTodo(e.target.value)}
           submit={submitHandler}
           error={error}
+          info={info}
         />
         <Lists del={delHandler} done={doneHandler} todos={todos} />
       </Layout>
