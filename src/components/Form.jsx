@@ -20,7 +20,7 @@ function Form({ todo, change, submit, error}) {
           {error && <small className="form-text text-danger">{error}</small>}
         </div>
         <div className="col-3">
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-danger">
             Add Todo
           </button>
         </div>
